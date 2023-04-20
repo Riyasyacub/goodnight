@@ -32,7 +32,6 @@ class SleepsController < ApplicationController
   end
 
   def sleep_reports
-    binding.pry
     @reports = current_user.followings.sleep_report
   end
 

@@ -13,6 +13,6 @@ class User < ApplicationRecord
     self.joins('left join sleeps on sleeps.user_id = follows.following_user_id')
         .where('sleeps.created_at >= ?', Date.today - days.days)
         .select('users.id user_id, users.name as user_name, sleeps.start_time, sleeps.end_time, ROUND(EXTRACT(EPOCH FROM (sleeps.end_time - sleeps.start_time)) / 3600.0, 2) duration')
-        .order('duration, sleeps.created_at')
+        .order('duration desc, sleeps.created_at')
   end
 end

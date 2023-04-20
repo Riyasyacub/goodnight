@@ -27,7 +27,7 @@ class UsersController < ApplicationController
                   elsif params[:view] == 'followings'
                     user.followings
                   else
-                    [user]
+                    user.followings
                   end
   end
 end
